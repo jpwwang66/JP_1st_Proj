@@ -1,4 +1,4 @@
-# Rock paper scissors 2.py  editted from a previous file
+# Rock paper scissors.py
 from tkinter import *
 import random
 import time
@@ -42,7 +42,7 @@ def show4():  # 另開視窗顯示歷史資料
                 line=line.rstrip()
                 AA.append(line)
             datalen = len(AA)
-            print(datalen)
+            # print(datalen)
             strAA=""    
             for n2 in range(len(AA)):
                 strAA=strAA+(AA[n2]+"\n")
@@ -59,7 +59,7 @@ def show4():  # 另開視窗顯示歷史資料
                 AA.append(line)
         datalen = len(AA)
         sliderlimit=datalen
-        print(sliderlimit)
+        # print(sliderlimit)
         strAA=""    
         for n2 in range(nos-1, len(AA)):
             strAA=strAA+(AA[n2]+"\n")
@@ -100,36 +100,40 @@ def show4():  # 另開視窗顯示歷史資料
         show4()
         
     rec = Tk()
-    rec.geometry("600x600")  # 視窗大小
-    content0=StringVar()
+    rec.geometry("420x430")  # 視窗大小
+    # content0=StringVar()
     sliderlimit=IntVar()
     sliderlimit.set(20)
-    rec.title("Rock_paper_scissors歷史紀錄")          # 視窗標題
-    e40 = Entry(rec,width=70,justify="center",fg="red")
-    e40.pack()
+    rec.title("剪刀石頭布比賽 歷史紀錄")          # 視窗標題
+
+
+    labelTop= Label(rec,text="歷史資料",font=14)
+    labelTop.place(x=180, y=5)
+    e40 = Entry(rec,width=60,justify="center",fg="red")
+    e40.place(x=30,y=320)
     data0, wholedata, sliderlimit =show44()
-    content0.set(wholedata)
-    print("content0=\n",content0.get())
+    # content0.set(wholedata)
+    # print("content0=\n",content0.get())
     print(data0)
-    label4 = Label(rec,width=70,height=20,anchor= "n",text=wholedata)  #textvariable=content0.get()).pack()
-    label4.pack()
+    label4 = Label(rec,width=52,height=18,anchor= "n",text=wholedata,relief="groove")  #textvariable=content0.get()).pack()
+    label4.place(x=30,y=30)
     slider2 = Scale(rec,from_=1,to=sliderlimit, orient=HORIZONTAL,length=300,command=showsome)
-    slider2.pack()
+    slider2.place(x=50,y=340)
 
     btn1 =Button(rec,width=6,height=1,text="插入",command = lambda:editdata("插入", data0,slider2.get()))
-    btn1.pack()
+    btn1.place(x=80,y=390)
     btn2 =Button(rec,width=6,height=1,text="覆蓋",command = lambda:editdata("覆蓋", data0,slider2.get()))
-    btn2.pack()
+    btn2.place(x=170,y=390)
     btn3 =Button(rec,width=6,height=1,text="刪除",command = lambda:editdata("刪除", data0,slider2.get()))
-    btn3.pack()
+    btn3.place(x=265,y=390)
     rec.mainloop()
 
 
 
 
 window = Tk()
-window.geometry("550x600")  # 視窗大小
-window.title("猜拳")          # 視窗標題
+window.geometry("450x450")  # 視窗大小
+window.title("猜拳比賽_輸入局數開始")          # 視窗標題
 
 game0=["剪刀","石頭","布"]   # 陣列
 
@@ -169,39 +173,39 @@ lb0.set("")
 temp0=""
 
 
-name0_label = Label(window, text='名字?')
+name0_label = Label(window, text='名字:')
 name0_label.place(x=10,y=250)
-name0=Entry(window,width=12,textvariable=n0)
+name0=Entry(window,width=12,textvariable=n0,justify="center",fg='blue')
 name0.place(x=50,y=250)
 
-games_label = Label(window, text='局數?')
+games_label = Label(window, text='局數:')
 games_label.place(x=10,y=300)
-games_text=Entry(window,width=6,textvariable=g1)
+games_text=Entry(window,width=6,textvariable=g1,justify="center",fg='red',font=10)
 games_text.place(x=50,y=300)
 
-win_label = Label(window, text='你贏?')
-win_label.place(x=120,y=300)
-win0_text=Entry(window,width=6,textvariable=w0)
+win_label = Label(window, text='你贏:')
+win_label.place(x=110,y=300)
+win0_text=Entry(window,width=6,textvariable=w0,justify="center",fg='blue')
 win0_text.place(x=150,y=300)
 
-even_label = Label(window, text='平手?')
-even_label.place(x=220,y=300)
-even0_text=Entry(window,width=6,textvariable=ev0)
+even_label = Label(window, text='平手:')
+even_label.place(x=210,y=300)
+even0_text=Entry(window,width=6,textvariable=ev0,justify="center",fg='blue')
 even0_text.place(x=250,y=300)
 
-lose_label = Label(window, text='你輸?')
-lose_label.place(x=320,y=300)
-lose0_text=Entry(window,width=6,textvariable=lo0)
+lose_label = Label(window, text='你輸:')
+lose_label.place(x=310,y=300)
+lose0_text=Entry(window,width=6,textvariable=lo0,justify="center",fg='blue')
 lose0_text.place(x=350,y=300)
 
-lb = Label(window, textvariable=lb0)
-lb.place(x=10,y=350)
+lb = Label(window, textvariable=lb0,fg='red',justify="center")
+lb.place(x=50,y=350)
 
 btn3=Button(window,text="存檔與重置",width=12,compound=TOP,command=show3)
-btn3.place(x=400,y=350)
+btn3.place(x=100,y=400)
 
 btn4=Button(window,text="檢視紀錄",width=12,compound=TOP,command=show4)
-btn4.place(x=400,y=390)
+btn4.place(x=250,y=400)
 
 
 window.mainloop()
