@@ -1,4 +1,6 @@
-# Rock paper scissors.py
+# 改這行內容  Rock paper scissors.py
+# 故意加一行
+# 再故意加一行一行
 from tkinter import *
 import random
 import time
